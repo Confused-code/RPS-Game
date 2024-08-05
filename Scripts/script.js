@@ -2,6 +2,8 @@
 
 // console.log("check");
 const log = console.log;
+let humanScore = 0;
+let computerScore = 0;
 
 gameStart();
 
@@ -9,8 +11,8 @@ function gameStart() {
     console.log("Welcome to the Rock-Paper-Scissor game");
     console.log("There will be total of 5 tries, u will be playing against cpu");
     let tries = 5;
-    let humanScore = 0;
-    let computerScore = 0;
+    humanScore = 0;
+    computerScore = 0;
 
     while(tries--) {
         const computerChoice = getComputerChoice();
@@ -43,7 +45,7 @@ function getComputerChoice () {
 }
 
 function getHumanChoice() {
-    const humanChoice = (prompt("Enter Your Choice: between rrock, paper and scissor")).toLowerCase();
+    const humanChoice = (prompt("Enter Your Choice: between rock, paper and scissor")).toLowerCase();
     if(humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissor") {
         alert("Invalid Choice, try again");
         return getHumanChoice();
