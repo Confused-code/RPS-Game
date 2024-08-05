@@ -3,7 +3,7 @@
 // console.log("check");
 const log = console.log;
 
-gameStart();
+// gameStart();
 
 function gameStart() {
     console.log("Welcome to the Rock-Paper-Scissor game");
