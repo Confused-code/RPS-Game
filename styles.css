@@ -1,0 +1,26 @@
+/*
+{
+    rgb(24, 1, 97)
+    rgb(79, 23, 135)
+    rgb(235, 54, 120)
+    rgb(251, 119, 60)
+}
+*/
+
+.scoreContainer {
+    display: flex;
+    gap: 2rem;
+}
+
+.scoreCard {
+    background-color: rgba(79, 23, 135, 0.5);
+    flex: 1;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+/* .visible {
+    visibility: visible;
+} */

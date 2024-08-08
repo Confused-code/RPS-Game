@@ -4,8 +4,28 @@
         <meta charset="utf-8">
         <title>RPS Game</title>
         <script defer src="./Scripts/script.js"></script>
+        <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        
+        <div class="container">
+            <div class="scoreContainer">
+                <div class="scoreCard">
+                    <p>your score</p>
+                    <p class="score" id="humanCurrentScore">0</p>
+                </div>
+                <div class="scoreCard">
+                    <p>computer score</p>
+                    <p class="score" id="computerCurrentScore">0</p>
+                </div>
+            </div>
+
+            <div class="gameMessage invisible">.</div>
+
+            <div class="controls">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissor">Scissor</button>
+            </div>
+        </div>
     </body>
 </html>
