@@ -2,6 +2,8 @@
 
 const humanCurrentScore = document.querySelector("#humanCurrentScore");
 const computerCurrentScore = document.querySelector("#computerCurrentScore");
+const gameMessage = document.querySelector(".gameMessage");
+let visibilityCounter =0; //for gameMessage
 
 // console.log("check");
 const log = console.log;
@@ -60,33 +62,63 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     if(humanChoice === computerChoice) {
-        log("you both tied");
+        gameMessage.textContent = "you both tied";
     } else if(humanChoice === "rock") {
         if(computerChoice === "paper") {
             computerScore++;
-            log(`You loose! ${computerChoice} beats ${humanChoice}`);
+            gameMessage.textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
         } else { // thats is scissor
             humanScore++;
-            log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            gameMessage.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
         }
     } else if (humanChoice === "paper") {
         if(computerChoice == "scissor") {
             computerScore++;
-            log(`You loose! ${computerChoice} beats ${humanChoice}`);
+            gameMessage.textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
         } else { //that is rock
             humanScore++;
-            log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            gameMessage.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
         }
     } else if (humanChoice === "scissor") {
         if(computerChoice === "rock") {
             computerScore++;
-            log(`You loose! ${computerChoice} beats ${humanChoice}`);
+            gameMessage.textContent = `You loose! ${computerChoice} beats ${humanChoice}`;
         } else { //that is paper
             humanScore++;
-            log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            gameMessage.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
         }
     }
     return;
+}
+
+function whosTheWinner() {
+    if(humanScore === computerScore) {
+        return "both of u tied";
+    } else if(humanScore > computerScore) {
+        return "wohoo! u r the winner";
+    } else {
+        return "sad, u lost";
+    }
+}
+
+function reset() {
+    humanScore = 0;
+    humanCurrentScore.textContent = humanScore;
+
+    computerScore = 0;
+    computerCurrentScore.textContent = computerScore;
+}
+
+function disableAllButtons() {
+    document.querySelectorAll('button').forEach((button)=> {
+        button.disabled = true;
+    });
+}
+
+function enableAllButtons() {
+    document.querySelectorAll('button').forEach((button)=> {
+        button.disabled = false;
+    });
 }
 
 const controlsContainer = document.querySelector('.controls');
@@ -97,7 +129,20 @@ controlsContainer.addEventListener('click', function(e) {
     const computerChoice = getComputerChoice();
 
     playRound(humanChoice, computerChoice);
+    
+    if(visibilityCounter < 3) 
+        visibilityCounter++;
+    if(visibilityCounter === 1) 
+        gameMessage.classList.remove("invisible");
 
     humanCurrentScore.textContent = humanScore;
     computerCurrentScore.textContent = computerScore;
+
+    if(humanScore == 5 || computerScore == 5) {
+        disableAllButtons();
+        const winner = whosTheWinner();
+        gameMessage.textContent = winner;
+        setTimeout(reset, 5000);
+        enableAllButtons();
+    }
 });

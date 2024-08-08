@@ -16,3 +16,11 @@
     background-color: rgba(79, 23, 135, 0.5);
     flex: 1;
 }
+
+.invisible {
+    visibility: hidden;
+}
+
+/* .visible {
+    visibility: visible;
+} */
