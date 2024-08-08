@@ -10,21 +10,10 @@ const log = console.log;
 let humanScore = 0;
 let computerScore = 0;
 
-let humanScore = 0;
-let computerScore = 0;
-
-<<<<<<< HEAD
-function gameStart() {
-    console.log("Welcome to the Rock-Paper-Scissor game");
-    console.log("There will be total of 5 tries, u will be playing against cpu");
-    let tries = 5;
-    humanScore = 0;
-    computerScore = 0;
-=======
-// gameStart();
+//game start
 console.log("Welcome to the Rock-Paper-Scissor game");
 console.log("There will be total of 5 tries, u will be playing against cpu");
->>>>>>> rps-ui
+
 
 
 function getComputerChoice () {
@@ -40,19 +29,6 @@ function getComputerChoice () {
     return returnChoice;
 }
 
-<<<<<<< HEAD
-function getHumanChoice() {
-    const humanChoice = (prompt("Enter Your Choice: between rock, paper and scissor")).toLowerCase();
-    if(humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissor") {
-        alert("Invalid Choice, try again");
-        return getHumanChoice();
-    }
-    else 
-        return humanChoice;
-}
-
-=======
->>>>>>> rps-ui
 function playRound(humanChoice, computerChoice) {
     if(humanChoice === computerChoice) {
         gameMessage.textContent = "you both tied";
