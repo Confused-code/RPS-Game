@@ -62,11 +62,11 @@ function playRound(humanChoice, computerChoice) {
 
 function whosTheWinner() {
     if(humanScore === computerScore) {
-        return "both of u tied";
+        return "both of u tied, wait 5 seconds for reset";
     } else if(humanScore > computerScore) {
-        return "wohoo! u r the winner";
+        return "wohoo! u r the winner, wait 5 seconds for reset";
     } else {
-        return "sad, u lost";
+        return "sad, u lost, wait 5 seconds for reset";
     }
 }
 
