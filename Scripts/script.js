@@ -107,17 +107,21 @@ function reset() {
 
     computerScore = 0;
     computerCurrentScore.textContent = computerScore;
+
+    enableAllButtons();
 }
 
 function disableAllButtons() {
     document.querySelectorAll('button').forEach((button)=> {
         button.disabled = true;
+        button.classList.add('invisible');
     });
 }
 
 function enableAllButtons() {
     document.querySelectorAll('button').forEach((button)=> {
         button.disabled = false;
+        button.classList.remove('invisible');
     });
 }
 
@@ -143,6 +147,5 @@ controlsContainer.addEventListener('click', function(e) {
         const winner = whosTheWinner();
         gameMessage.textContent = winner;
         setTimeout(reset, 5000);
-        enableAllButtons();
     }
 });
