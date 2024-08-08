@@ -1,7 +1,13 @@
 "use strict";
 
+const humanCurrentScore = document.querySelector("#humanCurrentScore");
+const computerCurrentScore = document.querySelector("#computerCurrentScore");
+
 // console.log("check");
 const log = console.log;
+
+let humanScore = 0;
+let computerScore = 0;
 
 // gameStart();
 
@@ -9,8 +15,8 @@ function gameStart() {
     console.log("Welcome to the Rock-Paper-Scissor game");
     console.log("There will be total of 5 tries, u will be playing against cpu");
     let tries = 5;
-    let humanScore = 0;
-    let computerScore = 0;
+    humanScore = 0;
+    computerScore = 0;
 
     while(tries--) {
         const computerChoice = getComputerChoice();
@@ -82,3 +88,16 @@ function playRound(humanChoice, computerChoice) {
     }
     return;
 }
+
+const controlsContainer = document.querySelector('.controls');
+
+//using method delegation
+controlsContainer.addEventListener('click', function(e) {
+    const humanChoice = e.target.textContent.toLowerCase();
+    const computerChoice = getComputerChoice();
+
+    playRound(humanChoice, computerChoice);
+
+    humanCurrentScore.textContent = humanScore;
+    computerCurrentScore.textContent = computerScore;
+});
